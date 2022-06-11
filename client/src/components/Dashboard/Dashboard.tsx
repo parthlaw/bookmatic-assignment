@@ -66,29 +66,31 @@ const Dashboard = () => {
               <span>Hari Singh</span>
             </div>
           </div> */}
-          {transactions.length > 0 ? (
-            transactions.map((tr, i) => {
-              return (
-                <div className="card">
-                  <div className="card-header">
-                    <span>{tr.amount}</span>
+          <div className="list">
+            {transactions.length > 0 ? (
+              transactions.map((tr, i) => {
+                return (
+                  <div className="card">
+                    <div className="card-header">
+                      <span>{tr.amount}</span>
+                    </div>
+                    <div className="icon">
+                      {tr.type === "recieved" ? (
+                        <BsArrowDownSquare color="green" fontSize="30px" />
+                      ) : (
+                        <BsArrowUpSquare color="red" fontSize="30px" />
+                      )}
+                    </div>
+                    <div className="card-body">
+                      <span>{tr.partyName}</span>
+                    </div>
                   </div>
-                  <div className="icon">
-                    {tr.type === "recieved" ? (
-                      <BsArrowDownSquare color="green" fontSize="30px" />
-                    ) : (
-                      <BsArrowUpSquare color="red" fontSize="30px" />
-                    )}
-                  </div>
-                  <div className="card-body">
-                    <span>{tr.partyName}</span>
-                  </div>
-                </div>
-              );
-            })
-          ) : (
-            <div className="no-transactions">No Transactions</div>
-          )}
+                );
+              })
+            ) : (
+              <div className="no-transactions">No Transactions</div>
+            )}
+          </div>
           <div className="top-bar">
             <button className="btn create" onClick={onClickLogout}>
               Logout
