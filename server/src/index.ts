@@ -19,7 +19,7 @@ const start = async () => {
   await dbConnectionCheck();
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
-  var whitelist = ['http://localhost:3000', 'https://staging.l-earnapp.com'];
+  var whitelist = ['http://localhost:3000', 'https://bookmatic-assignment.vercel.app'];
   var corsOptions = {
     origin: function (origin, callback) {
       if (whitelist.indexOf(origin) !== -1 || origin === undefined) {
