@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 axios.defaults.withCredentials = true;
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://bookmatic-assignment.herokuapp.com";
 export const login = async (data: { username: string; password: string }) => {
   try {
     return await axios.post(`${BASE_URL}/user/login`, data);
